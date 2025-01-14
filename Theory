@@ -161,7 +161,69 @@ Real-World Applications
 	3.	Database Testing: Test database queries and transactions.
 	4.	UI Testing (with Selenium): Automate browser interactions for testing web applications.
 
+#######################################################################################################
+#######################################################################################################
+#############################################---Logs----###############################################
 
+Here’s a concise explanation of logging in pytest, presented in points:
+
+Logging in pytest: Key Points
+	1.	Purpose of Logging:
+	•	Logs provide real-time debugging information during test execution.
+	•	Useful for tracking test behavior and pinpointing issues.
+	2.	Built-in Logging Support:
+	•	pytest integrates seamlessly with Python’s built-in logging module.
+	3.	Logging Levels:
+	•	Supported levels: DEBUG, INFO, WARNING, ERROR, CRITICAL.
+	•	Default level is WARNING.
+	4.	Enabling Logs in Test Output:
+	•	Use -o log_cli=true to enable real-time logs in the terminal during test execution.
+	•	Example: pytest -o log_cli=true.
+	5.	Configuring Logging Format:
+	•	Customize log output with log_cli_format and log_cli_level options.
+	•	Example:
+
+pytest -o log_cli=true -o log_cli_level=INFO -o log_cli_format="%(asctime)s [%(levelname)s] %(message)s"
+
+
+	6.	Log File Output:
+	•	Save logs to a file using --log-file and configure its format with --log-file-format.
+	•	Example:
+
+pytest --log-file=test.log --log-file-level=DEBUG
+
+
+	7.	Capturing Logs:
+	•	pytest captures logs by default but doesn’t show them unless explicitly enabled.
+	•	Disable capturing with -s to see print statements and logs during test execution.
+	8.	Using caplog Fixture:
+	•	pytest provides the caplog fixture to assert and test log messages within your tests.
+	•	Example:
+
+def test_example(caplog):
+    with caplog.at_level(logging.INFO):
+        logging.info("This is a log message")
+    assert "This is a log message" in caplog.text
+
+
+	9.	Filtering Logs:
+	•	Use --log-level to control the minimum level of log messages displayed.
+	•	Example: pytest --log-level=DEBUG.
+	10.	pytest.ini Configuration:
+	•	Persistent log settings can be added to the pytest.ini file:
+
+[pytest]
+log_cli = true
+log_cli_level = INFO
+log_cli_format = %(asctime)s [%(levelname)s] %(message)s
+
+
+	11.	Logging and Concurrency:
+	•	In multi-threaded or parallel tests (e.g., with pytest-xdist), logs may be interleaved unless handled carefully.
+	12.	Third-Party Plugins:
+	•	Plugins like pytest-logfest can extend logging functionalities for advanced use cases.
+
+Would you like detailed examples of any specific point?
 
 
 
