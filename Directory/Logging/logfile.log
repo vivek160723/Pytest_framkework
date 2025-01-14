@@ -1,0 +1,5 @@
+2025-01-14 11:20:15,180:DEBUG:test_demo6:This is a debug message
+2025-01-14 11:20:15,180:INFO:test_demo6:This is an info message
+2025-01-14 11:20:15,180:WARNING:test_demo6:This is a warning message
+2025-01-14 11:20:15,180:ERROR:test_demo6:This is an error message
+2025-01-14 11:20:15,180:CRITICAL:test_demo6:This is a critical message

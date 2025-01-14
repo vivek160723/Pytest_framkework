@@ -18,3 +18,4 @@ def demo_log():
     logger.critical("This is a critical message")
 
 demo_log()
+
